@@ -20,16 +20,6 @@
             return first.Equals(tuple.first) && second.Equals(tuple.second);
         }
 
-        public bool Some(Func<F, bool> pred)
-        {
-            if (second is F fSecond)
-            {
-                return pred(first) && pred(fSecond);
-            }
-
-            return false;
-        }
-
         public static Tuple<FST, SND> Fanout<FST, SND, T>(Func<T, FST> f, Func<T, SND> g, T value) => new Tuple<FST, SND>(f(value), g(value));  
 
         public static Tuple<FST, FST> FromArray<FST>(FST[] array)
@@ -55,7 +45,7 @@
             return pred(first);
         }
 
-        public bool Some(Func<S, bool> pred) //how to guarantee the above function will always match first
+        public bool Some(Func<S, bool> pred)
         {
             if (first is S sFirst)
             {
