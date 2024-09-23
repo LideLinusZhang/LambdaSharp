@@ -1,6 +1,6 @@
 ﻿namespace LambdaSharp.Tuple
 {
-    internal class Tuple<F, S> // does not implement Iterator and ArrayLike interface
+    internal class Tuple<F, S>
     {
         private F first;
         private S second;
