@@ -57,7 +57,7 @@
 
         public Tuple<S, F> Swap() => new Tuple<S, F>(second, first);
 
-        public IEnumerable<object> ToArray() => new List<object> { first, second };
+        public object[] ToArray() => [first, second];
 
     }
 }
