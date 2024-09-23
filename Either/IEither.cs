@@ -28,9 +28,7 @@ namespace LambdaSharp.Either
         R OrDefault(R defaultValue);
         R OrDefaultLazy(Lazy<Func<R>> defaultValue);
         T Reduce<T>(Func<T, R, T> reducer, T initialValue);
-        //IEither<R, L> Swap();
         IMaybe<R> ToMaybe();
-
         R UnsafeCoerce();
     }
 }

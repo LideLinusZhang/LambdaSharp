@@ -12,7 +12,6 @@ namespace LambdaSharp.Either
 		}
 
         public IEither<L, R> Alt(IEither<L, R> other) => other.Map(x => x);
-            //return other.IsLeft() ? new Left<L, R>((L)value) : new Right<L, R>((R)value);
 
         public IEither<L, R> AltLazy(Lazy<IEither<L, R>> other) => other.Value.Map(x => x);
 
