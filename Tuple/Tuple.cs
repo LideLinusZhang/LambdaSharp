@@ -1,6 +1,6 @@
 ﻿namespace LambdaSharp.Tuple
 {
-    internal class Tuple<F, S> // does not implement Iterator and ArrayLike interface
+    internal class Tuple<F, S>
     {
         private F first;
         private S second;
@@ -18,16 +18,6 @@
         public bool Equals(Tuple<F,S> tuple)
         {
             return first.Equals(tuple.first) && second.Equals(tuple.second);
-        }
-
-        public bool Some(Func<F, bool> pred)
-        {
-            if (second is F fSecond)
-            {
-                return pred(first) && pred(fSecond);
-            }
-
-            return false;
         }
 
         public static Tuple<FST, SND> Fanout<FST, SND, T>(Func<T, FST> f, Func<T, SND> g, T value) => new Tuple<FST, SND>(f(value), g(value));  
@@ -55,7 +45,7 @@
             return pred(first);
         }
 
-        public bool Some(Func<S, bool> pred) //how to guarantee the above function will always match first
+        public bool Some(Func<S, bool> pred)
         {
             if (first is S sFirst)
             {
@@ -67,7 +57,7 @@
 
         public Tuple<S, F> Swap() => new Tuple<S, F>(second, first);
 
-        public IEnumerable<object> ToArray() => new List<object> { first, second };
+        public object[] ToArray() => [first, second];
 
     }
 }
