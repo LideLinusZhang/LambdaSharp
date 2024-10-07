@@ -2,6 +2,7 @@
 
 namespace LambdaSharp.List
 {
+    // TODO: Implement currying
     public static class List
     {
         public static IMaybe<T> LSAt<T>(int index, IList<T> list) 
