@@ -1,6 +1,6 @@
 ﻿namespace LambdaSharp.Tuple
 {
-    internal class Tuple<F, S>
+    public class Tuple<F, S>
     {
         private readonly F first;
         private readonly S second;
